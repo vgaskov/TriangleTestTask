@@ -3,7 +3,6 @@ package com.triangle.testtask;
 import java.io.IOException;
 import java.util.Scanner;
 
-
 public class Main {
 
 	public static void main(String[] args) {
@@ -28,18 +27,18 @@ public class Main {
 				System.out.println("The given input data does not correspond to any triangle");
 				break;
 			}
-		} catch (IOException e) {
+		} catch (IllegalArgumentException e) {
 			System.out.println(e.getLocalizedMessage().toString());
 		}
 	}
 	
-	private static double getDoubleFromKeyboard(String message) throws IOException {    	
+	private static double getDoubleFromKeyboard(String message) throws IllegalArgumentException {    	
 		System.out.println(message);
 		try (Scanner sc = new Scanner(new InputStreamDecorator(System.in))) {
 			if (sc.hasNextDouble()) {
 				return sc.nextDouble();
 			} else {
-				throw new IOException("the given value is non-numeric");
+				throw new IllegalArgumentException("the given value is non-numeric");
 			}
 		}
     }
