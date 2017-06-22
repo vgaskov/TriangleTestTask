@@ -29,10 +29,10 @@ public class Main {
 		}
 	}
 	
-    private static double getDoubleFromKeyboard(String message) {
+    @SuppressWarnings("resource")
+	private static double getDoubleFromKeyboard(String message) {
     	while(true) {    	
     		System.out.println(message);
-    		@SuppressWarnings("resource")
     		Scanner sc = new Scanner(System.in);
     		if (sc.hasNextDouble()) {
     			return sc.nextDouble();
