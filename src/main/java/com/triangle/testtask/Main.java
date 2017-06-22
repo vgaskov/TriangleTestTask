@@ -13,6 +13,7 @@ public class Main {
 			final double sideB = getDoubleFromKeyboard("Please insert sideB:");
 			final double sideC = getDoubleFromKeyboard("Please insert sideC:");
 			
+			System.out.println("Testing a triangle with the following side lengths: " + sideA + " " + sideB + " " + sideC);
 			switch (Triangle.classify(sideA, sideB, sideC)) {
 			case EQUILATERAL:
 				System.out.println("The triangle is EQUILATERAL");
