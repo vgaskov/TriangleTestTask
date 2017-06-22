@@ -9,9 +9,9 @@ public class Triangle {
             return TriangleType.INVALID;
         }
         
-        if (sideA == sideB && sideA == sideC && sideB == sideC) {
+        if (sideA == sideB && sideB == sideC) {
             return TriangleType.EQUILATERAL;
-        } else if (sideA == sideB || sideA == sideC || sideB == sideC) {
+        } else if (sideA == sideB || sideB == sideC) {
             return TriangleType.ISOSCELES;
         } else {
             return TriangleType.SCALENE;
