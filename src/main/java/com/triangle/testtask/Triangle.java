@@ -9,7 +9,7 @@ public class Triangle {
             return TriangleType.INVALID;
         }
         
-        if (sideA == sideB && sideA == sideC && sideB == sideC) {
+        if (sideA == sideB && sideA == sideC) {
             return TriangleType.EQUILATERAL;
         } else if (sideA == sideB || sideA == sideC || sideB == sideC) {
             return TriangleType.ISOSCELES;
