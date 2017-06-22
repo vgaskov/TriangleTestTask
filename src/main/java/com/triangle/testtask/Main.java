@@ -30,20 +30,15 @@ public class Main {
 	}
 	
     private static double getDoubleFromKeyboard(String message) {
-        double inputValue = 0;
-        boolean inputValueIsDouble = false;
-        
-    	while(!inputValueIsDouble) {    	
+    	while(true) {    	
     		System.out.println(message);
     		@SuppressWarnings("resource")
     		Scanner sc = new Scanner(System.in);
     		if (sc.hasNextDouble()) {
-    			inputValue = sc.nextDouble();
-    			inputValueIsDouble = true;
+    			return sc.nextDouble();
     		} else {
     			System.out.println("The given value is non-numeric");
     		}
         }
-    	return inputValue;
     }
 }
