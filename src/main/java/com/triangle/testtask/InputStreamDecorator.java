@@ -26,24 +26,8 @@ public class InputStreamDecorator extends InputStream {
         return inputStream.read(b, off, len);
     }
 
-    @Override
-    public long skip(long n) throws IOException {
-        return inputStream.skip(n);
-    }
-
-    @Override
-    public int available() throws IOException {
-        return inputStream.available();
-    }
-
-    @Override
-    public synchronized void mark(int readlimit) {
-        inputStream.mark(readlimit);
-    }
-	
 	@Override
 	public void close() throws IOException {
-		//this is to prevent closing System.in when the Scanner is closed
+		//Leaving the method blank to prevent closing input stream when closing Scanner
 	}
-
 }
