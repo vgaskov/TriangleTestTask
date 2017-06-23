@@ -7,6 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		try {
+			System.out.println("Welcome to the triangle challenge program, you may exit the program at any time by typing 'quit'");
 			final double sideA = getDoubleFromKeyboard("Please insert sideA:");		
 			final double sideB = getDoubleFromKeyboard("Please insert sideB:");
 			final double sideC = getDoubleFromKeyboard("Please insert sideC:");
