@@ -19,8 +19,8 @@ public class Main {
 			log.info("Testing a triangle with the following side lengths: " + sideA + " " + sideB + " " + sideC);
 			
 			TriangleType triangle = Triangle.classify(sideA, sideB, sideC);
-			
 			log.info("The classification result is " + triangle);
+			
 			switch (triangle) {
 			case EQUILATERAL:
 				System.out.println("The triangle is EQUILATERAL");
