@@ -8,12 +8,12 @@ public class Main {
 	public static void main(String[] args) {
 		final Logger log = Logger.getLogger(Main.class);
 		
-		try {
+		try (Scanner sc = new Scanner(System.in)) {
 			System.out.println("Welcome to the triangle challenge program, you may exit the program at any time by typing 'quit'");
 			log.info("Started the program");
-			final double sideA = getDoubleFromKeyboard("Please insert sideA:");		
-			final double sideB = getDoubleFromKeyboard("Please insert sideB:");
-			final double sideC = getDoubleFromKeyboard("Please insert sideC:");
+			final double sideA = getDoubleFromKeyboard(sc ,"Please insert sideA:");		
+			final double sideB = getDoubleFromKeyboard(sc, "Please insert sideB:");
+			final double sideC = getDoubleFromKeyboard(sc, "Please insert sideC:");
 			
 			System.out.println("Testing a triangle with the following side lengths: " + sideA + " " + sideB + " " + sideC);
 			log.info("Testing a triangle with the following side lengths: " + sideA + " " + sideB + " " + sideC);
@@ -44,17 +44,16 @@ public class Main {
 		}
 	}
 	
-	private static double getDoubleFromKeyboard(String message) throws TriangleException {
+	private static double getDoubleFromKeyboard(Scanner sc, String message) throws TriangleException {
 		while (true) {
 			System.out.println(message);
-			try (Scanner sc = new Scanner(new InputStreamDecorator(System.in))) {
-				if (sc.hasNext("quit")) {
-					throw new TriangleException("Exiting the program");
-				} else if (sc.hasNextDouble()) {
-					return sc.nextDouble();
-				} else {
-					System.out.println("the given value is non-numeric");
-				}
+			if (sc.hasNext("quit")) {
+				throw new TriangleException("Exiting the program");
+			} else if (sc.hasNextDouble()) {
+				return sc.nextDouble();
+			} else {
+				System.out.println("the given value is non-numeric");
+				sc.nextLine();
 			}
 		}
     }
