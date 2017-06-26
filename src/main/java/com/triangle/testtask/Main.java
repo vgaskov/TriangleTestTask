@@ -41,6 +41,8 @@ public class Main {
 		} catch (Exception e) {
 			System.out.println("ERROR OCCURED: " + e.getLocalizedMessage().toString());
 			log.error("ERROR OCCURED, the stack trace is: ", e);
+		} finally {
+			log.info("The program is exited");
 		}
 	}
 	
@@ -48,7 +50,7 @@ public class Main {
 		while (true) {
 			System.out.println(message);
 			if (sc.hasNext("quit")) {
-				throw new TriangleException("Exiting the program");
+				throw new TriangleException("quit inserted, exiting the program");
 			} else if (sc.hasNextDouble()) {
 				return sc.nextDouble();
 			} else {
