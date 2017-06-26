@@ -1,20 +1,27 @@
 package com.triangle.testtask;
 
 import java.util.Scanner;
+import org.apache.log4j.Logger;
 
 public class Main {
 
 	public static void main(String[] args) {
+		final Logger log = Logger.getLogger(Main.class);
 		
 		try {
 			System.out.println("Welcome to the triangle challenge program, you may exit the program at any time by typing 'quit'");
+			log.info("Started the program");
 			final double sideA = getDoubleFromKeyboard("Please insert sideA:");		
 			final double sideB = getDoubleFromKeyboard("Please insert sideB:");
 			final double sideC = getDoubleFromKeyboard("Please insert sideC:");
 			
 			System.out.println("Testing a triangle with the following side lengths: " + sideA + " " + sideB + " " + sideC);
-
-			switch (Triangle.classify(sideA, sideB, sideC)) {
+			log.info("Testing a triangle with the following side lengths: " + sideA + " " + sideB + " " + sideC);
+			
+			TriangleType triangle = Triangle.classify(sideA, sideB, sideC);
+			
+			log.info("The classification result is " + triangle);
+			switch (triangle) {
 			case EQUILATERAL:
 				System.out.println("The triangle is EQUILATERAL");
 				break;
@@ -30,8 +37,10 @@ public class Main {
 			}
 		} catch (TriangleException e) {
 			System.out.println(e.getLocalizedMessage().toString());
+			log.info(e.getLocalizedMessage().toString());
 		} catch (Exception e) {
 			System.out.println("ERROR OCCURED: " + e.getLocalizedMessage().toString());
+			log.error("ERROR OCCURED, the stack trace is: ", e);
 		}
 	}
 	
